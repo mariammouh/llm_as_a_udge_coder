@@ -41,7 +41,7 @@ This repository contains the complete experimental code, raw benchmark outputs, 
 
 ---
 
-## Pillar 1: Base Model Selection & Parameter Freezing ($A0$)
+## Pillar 1: Base Model Selection & Parameter Freezing ($A0$) — Sana Anejjar
 
 ### Objective
 Before constructing complex multi-agent wrappers, we compared five open code models under identical, frozen zero-shot conditions ($A0$: greedy decoding `temp=0.0`, `max_tokens=768`, repetition penalty = 1.0) on both **HumanEval+** (164 tasks) and **BigCodeBench-Hard** (148 tasks).
@@ -64,7 +64,7 @@ Before constructing complex multi-agent wrappers, we compared five open code mod
 
 ---
 
-## Pillar 2: The "Builder-Only" Strategy (Strategy 2)
+## Pillar 2: The "Builder-Only" Strategy (Strategy 2) — Latifa Didouche
 
 ### Architecture
 An agent comprising a router, prompt reformulation, direct code generation ("Builder"), and a local execution sandbox with up to 3 repair attempts:
@@ -80,7 +80,7 @@ $$\text{User Request} \xrightarrow{\text{Router}} \text{Reformulate} \xrightarro
 
 ---
 
-## Pillar 3: Scaffolding, LLM Judge (Phi-4 14B), and Continuous Selection
+## Pillar 3: Scaffolding, LLM Judge (Phi-4 14B), and Continuous Selection — Mariam Mouh
 
 Pillar 3 investigated whether surrounding `Qwen2.5-Coder-7B` with a Spec Builder, Planner, and a cross-family reasoning judge (`microsoft/phi-4` 14B) on BigCodeBench-Hard (148 tasks) could overcome the limitations discovered in Pillar 2.
 
@@ -157,7 +157,13 @@ Replacing unit tests with `Phi-4 14B` (4-bit NF4) and sampled repairs (`temp=0.5
 
 ---
 
-### Authors
-- **NLP Research & Engineering Team**
-- **Institution:** ENSIASD - Sciences des Données, Big Data & IA (November 2026)
+### Team & Task Distribution
+- **Pillar 1 — Base Model Selection & Parameter Freezing ($A0$ Baseline):** **Sana Anejjar**  
+  *Comparative benchmark of 5 open code models on HumanEval+ and BigCodeBench-Hard, establishing the Qwen2.5-Coder-7B baseline.*
+- **Pillar 2 — The "Builder-Only" Reactive Strategy:** **Latifa Didouche**  
+  *Implementation and analysis of the Router-Reformulate-Builder agent on HumanEval and BigCodeBench, uncovering the smoke-test illusion and false alarm rates in generated tests.*
+- **Pillar 3 — Scaffolding, LLM Judge (Phi-4 14B), and Continuous Selection:** **Mariam Mouh**  
+  *Investigation of prompt scaffolding (Spec Builder, Planner), cross-family LLM-as-a-judge diagnostics (v2 to v5), crash-first gating, and the Continuous Probability Selector.*
+
+- **Institution:** ENSIASD - Sciences des Données, Big Data & IA (November 2026)  
 - **Repository:** [https://github.com/mariammouh/llm_as_a_udge_coder](https://github.com/mariammouh/llm_as_a_udge_coder)
